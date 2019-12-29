@@ -1,4 +1,4 @@
-package com.dari.animes
+package com.k0d4black.animes
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
