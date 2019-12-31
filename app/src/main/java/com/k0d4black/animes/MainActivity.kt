@@ -22,6 +22,8 @@ class MainActivity : AppCompatActivity() {
 
     fun translateAnimation(view: View) = setAnimator(R.animator.translate_animation)
 
+    fun setAnimation(view: View) = setAnimator(R.animator.set_animation)
+
     private fun setAnimator(@AnimatorRes animator: Int) {
         AnimatorInflater.loadAnimator(this, animator).apply {
             setTarget(animation_text_view)
