@@ -1,6 +1,7 @@
 package com.k0d4black.animes
 
-import android.animation.AnimatorInflater
+import android.animation.ObjectAnimator
+import android.animation.ValueAnimator.REVERSE
 import android.os.Bundle
 import android.view.View
 import androidx.annotation.AnimatorRes
@@ -24,9 +25,21 @@ class MainActivity : AppCompatActivity() {
 
     fun setAnimation(view: View) = setAnimator(R.animator.set_animation)
 
+    fun objectAnimator() {
+        //Xml alternative
+        ObjectAnimator.ofFloat(animation_text_view, "alpha", 0.0f, 1.0f).apply {
+            duration = 900
+            repeatCount = 1
+            repeatMode = REVERSE
+            addListener(AnimatorListener(this@MainActivity))
+            start()
+        }
+    }
+
     private fun setAnimator(@AnimatorRes animator: Int) {
-        AnimatorInflater.loadAnimator(this, animator).apply {
+        animationResourceLoader(animator).apply {
             setTarget(animation_text_view)
+            addListener(AnimatorListener(this@MainActivity))
             start()
         }
     }
