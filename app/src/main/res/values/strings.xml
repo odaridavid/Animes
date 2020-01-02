@@ -5,4 +5,6 @@
     <string name="title_alpha">Alpha</string>
     <string name="title_rotate">Rotate</string>
     <string name="dummy_text">Animation Will Be Applied on this text</string>
+    <string name="title_animator_set_xml">Animation Set XML</string>
+    <string name="title_animation_set_code">Animation Set Code</string>
 </resources>
