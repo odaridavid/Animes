@@ -7,4 +7,9 @@
     <string name="dummy_text">Animation Will Be Applied on this text</string>
     <string name="title_animator_set_xml">Animation Set XML</string>
     <string name="title_animation_set_code">Animation Set Code</string>
+    <string name="title_view_property_animation">View Property Animation</string>
+    <string name="title_property_values_holder">Property Values Holder</string>
+    <string name="title_animating_drawables">Animating Drawables</string>
+    <string name="title_animate">Animate</string>
+    <string name="title_start_stop">Start/Stop</string>
 </resources>
