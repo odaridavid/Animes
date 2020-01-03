@@ -2,6 +2,7 @@ package com.k0d4black.animes
 
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator.REVERSE
 import android.os.Bundle
 import android.view.View
@@ -61,6 +62,21 @@ class MainActivity : AppCompatActivity() {
             rotationX(120.0f)
             scaleX(1.2f)
             interpolator = AccelerateDecelerateInterpolator()
+            start()
+        }
+
+    }
+
+    fun propertyValuesHolder(view: View) {
+
+        val rotationAnim = PropertyValuesHolder.ofFloat("rotationX", 120f)
+        val alphaAnim = PropertyValuesHolder.ofFloat("alpha", 1.0f)
+
+        val objAnim =
+            ObjectAnimator.ofPropertyValuesHolder(animation_text_view, rotationAnim, alphaAnim)
+
+        objAnim.apply {
+            duration = 1000
             start()
         }
 
