@@ -28,6 +28,7 @@
         android:text="@string/title_animator_set_xml"
         android:textColor="#fff"
         app:layout_constraintBottom_toTopOf="@id/rotate_button"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintEnd_toStartOf="@id/animation_set_code_button"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -40,6 +41,7 @@
         android:onClick="animatorSetInitFromCode"
         android:text="@string/title_animation_set_code"
         android:textColor="#fff"
+        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintBottom_toTopOf="@id/rotate_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/animation_set_xml_button" />

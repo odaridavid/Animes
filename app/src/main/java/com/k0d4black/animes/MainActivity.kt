@@ -6,8 +6,6 @@ import android.animation.ValueAnimator.REVERSE
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.AnticipateOvershootInterpolator
-import android.view.animation.BounceInterpolator
 import androidx.annotation.AnimatorRes
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -40,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun animatorSetInitFromCode(view:View) {
+    fun animatorSetInitFromCode(view: View) {
         val rootSet = AnimatorSet()
         val flip = ObjectAnimator.ofFloat(animation_text_view, "rotationX", 0.0f, 200.0f)
         flip.duration = 400
@@ -54,6 +52,18 @@ class MainActivity : AppCompatActivity() {
 //        rootSet.playSequentially(flip, scale)
         rootSet.play(flip).before(scale)//after,with-play sequentially
         rootSet.start()
+    }
+
+    fun viewPropertyAnimator(view: View) {
+        val vpa = animation_text_view.animate()
+        vpa.apply {
+            duration = 500
+            rotationX(120.0f)
+            scaleX(1.2f)
+            interpolator = AccelerateDecelerateInterpolator()
+            start()
+        }
+
     }
 
     private fun setAnimator(@AnimatorRes animator: Int) {
