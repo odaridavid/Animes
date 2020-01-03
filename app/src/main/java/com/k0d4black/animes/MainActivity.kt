@@ -1,9 +1,12 @@
 package com.k0d4black.animes
 
+import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
+import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator.REVERSE
 import android.os.Bundle
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.annotation.AnimatorRes
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -25,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setAnimation(view: View) = setAnimator(R.animator.set_animation)
 
-    fun objectAnimator() {
+    fun objectAnimatorInitFromCode() {
         //Xml alternative
         ObjectAnimator.ofFloat(animation_text_view, "alpha", 0.0f, 1.0f).apply {
             duration = 900
@@ -34,6 +37,49 @@ class MainActivity : AppCompatActivity() {
             addListener(AnimatorListener(this@MainActivity))
             start()
         }
+    }
+
+    fun animatorSetInitFromCode(view: View) {
+        val rootSet = AnimatorSet()
+        val flip = ObjectAnimator.ofFloat(animation_text_view, "rotationX", 0.0f, 200.0f)
+        flip.duration = 400
+        flip.repeatMode = REVERSE
+        flip.repeatCount = 1
+        val scale = ObjectAnimator.ofFloat(animation_text_view, "rotationY", 0.0f, 120.0f)
+        scale.duration = 400
+        scale.interpolator = AccelerateDecelerateInterpolator()
+        scale.repeatCount = 1
+        scale.repeatMode = REVERSE
+//        rootSet.playSequentially(flip, scale)
+        rootSet.play(flip).before(scale)//after,with-play sequentially
+        rootSet.start()
+    }
+
+    fun viewPropertyAnimator(view: View) {
+        val vpa = animation_text_view.animate()
+        vpa.apply {
+            duration = 500
+            rotationX(120.0f)
+            scaleX(1.2f)
+            interpolator = AccelerateDecelerateInterpolator()
+            start()
+        }
+
+    }
+
+    fun propertyValuesHolder(view: View) {
+
+        val rotationAnim = PropertyValuesHolder.ofFloat("rotationX", 120f)
+        val alphaAnim = PropertyValuesHolder.ofFloat("alpha", 1.0f)
+
+        val objAnim =
+            ObjectAnimator.ofPropertyValuesHolder(animation_text_view, rotationAnim, alphaAnim)
+
+        objAnim.apply {
+            duration = 1000
+            start()
+        }
+
     }
 
     private fun setAnimator(@AnimatorRes animator: Int) {

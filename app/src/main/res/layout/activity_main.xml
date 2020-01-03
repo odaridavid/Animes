@@ -19,17 +19,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/animation_set_button"
+        android:id="@+id/animation_set_xml_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/default_margin"
         android:backgroundTint="#ec407a"
         android:onClick="setAnimation"
-        android:text="Animation Set"
+        android:text="@string/title_animator_set_xml"
         android:textColor="#fff"
         app:layout_constraintBottom_toTopOf="@id/rotate_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintEnd_toStartOf="@id/animation_set_code_button"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/animation_set_code_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:backgroundTint="#ec407a"
+        android:onClick="animatorSetInitFromCode"
+        android:text="@string/title_animation_set_code"
+        android:textColor="#fff"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@id/rotate_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/animation_set_xml_button" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/rotate_button"
