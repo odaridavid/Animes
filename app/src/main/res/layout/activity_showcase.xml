@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ShowcaseActivity">
 
     <TextView
         android:id="@+id/animation_text_view"
@@ -19,6 +19,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/view_property_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:backgroundTint="#7c4dff"
+        android:onClick="viewPropertyAnimator"
+        android:text="@string/title_view_property_animation"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toTopOf="@id/property_values_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/property_values_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/default_margin"
+        android:backgroundTint="#7c4dff"
+        android:onClick="propertyValuesHolder"
+        android:text="@string/title_property_values_holder"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toTopOf="@id/animation_set_xml_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/animation_set_xml_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -27,9 +53,8 @@
         android:onClick="setAnimation"
         android:text="@string/title_animator_set_xml"
         android:textColor="#fff"
-        app:layout_constraintBottom_toTopOf="@id/rotate_button"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintEnd_toStartOf="@id/animation_set_code_button"
+        app:layout_constraintBottom_toTopOf="@id/animation_set_code_button"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
@@ -41,10 +66,9 @@
         android:onClick="animatorSetInitFromCode"
         android:text="@string/title_animation_set_code"
         android:textColor="#fff"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintBottom_toTopOf="@id/rotate_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/animation_set_xml_button" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/rotate_button"
@@ -55,9 +79,9 @@
         android:onClick="rotateAnimation"
         android:text="@string/title_rotate"
         android:textColor="#fff"
-        app:layout_constraintBottom_toTopOf="@id/alpha_button"
+        app:layout_constraintBottom_toTopOf="@id/scale_button"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/alpha_button" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/alpha_button"
@@ -68,7 +92,7 @@
         android:onClick="alphaAnimation"
         android:text="@string/title_alpha"
         app:layout_constraintBottom_toTopOf="@id/scale_button"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/rotate_button"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.button.MaterialButton
@@ -79,9 +103,9 @@
         android:backgroundTint="#ff9800"
         android:onClick="scaleAnimation"
         android:text="@string/title_scale"
-        app:layout_constraintBottom_toTopOf="@id/translate_button"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/translate_button" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -94,7 +118,7 @@
         android:text="@string/title_translate"
         android:textColor="#fff"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/scale_button"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

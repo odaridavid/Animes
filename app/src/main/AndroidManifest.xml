@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.k0d4black.animes.MainActivity">
+        <activity
+            android:name=".AnimatingDrawablesActivity"
+            android:label="Animating Drawables"
+            android:parentActivityName=".ShowcaseActivity" />
+        <activity android:name=".ShowcaseActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

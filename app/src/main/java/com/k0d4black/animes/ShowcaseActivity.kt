@@ -4,18 +4,21 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator.REVERSE
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.view.animation.AccelerateDecelerateInterpolator
 import androidx.annotation.AnimatorRes
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_showcase.*
 
-class MainActivity : AppCompatActivity() {
+class ShowcaseActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_showcase)
     }
 
     fun rotateAnimation(view: View) = setAnimator(R.animator.rotate_animation)
@@ -34,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             duration = 900
             repeatCount = 1
             repeatMode = REVERSE
-            addListener(AnimatorListener(this@MainActivity))
+            addListener(AnimatorListener(this@ShowcaseActivity))
             start()
         }
     }
@@ -60,6 +63,7 @@ class MainActivity : AppCompatActivity() {
         vpa.apply {
             duration = 500
             rotationX(120.0f)
+            rotation(0.0f)
             scaleX(1.2f)
             interpolator = AccelerateDecelerateInterpolator()
             start()
@@ -77,6 +81,9 @@ class MainActivity : AppCompatActivity() {
 
         objAnim.apply {
             duration = 1000
+            repeatMode = REVERSE
+            repeatCount = 1
+            interpolator = AccelerateDecelerateInterpolator()
             start()
         }
 
@@ -85,8 +92,20 @@ class MainActivity : AppCompatActivity() {
     private fun setAnimator(@AnimatorRes animator: Int) {
         animationResourceLoader(animator).apply {
             setTarget(animation_text_view)
-            addListener(AnimatorListener(this@MainActivity))
+            addListener(AnimatorListener(this@ShowcaseActivity))
             start()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return if (item.itemId == R.id.action_animating_drawables) {
+            startActivity(Intent(this, AnimatingDrawablesActivity::class.java))
+            true
+        } else return super.onOptionsItemSelected(item)
     }
 }
