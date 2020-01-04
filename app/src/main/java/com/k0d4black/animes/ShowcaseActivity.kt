@@ -4,7 +4,6 @@ import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.PropertyValuesHolder
 import android.animation.ValueAnimator.REVERSE
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -102,10 +101,17 @@ class ShowcaseActivity : AppCompatActivity() {
         return super.onCreateOptionsMenu(menu)
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return if (item.itemId == R.id.action_animating_drawables) {
-            startActivity(Intent(this, AnimatingDrawablesActivity::class.java))
-            true
-        } else return super.onOptionsItemSelected(item)
-    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean =
+        when (item.itemId) {
+            R.id.action_animating_drawables -> {
+                startActivity<AnimatingDrawablesActivity>()
+                true
+            }
+            R.id.action_animated_vector_drawables -> {
+                startActivity<AnimatedVectorDrawablesActivity>()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
 }
+

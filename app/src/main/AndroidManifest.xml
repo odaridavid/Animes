@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AnimatedVectorDrawablesActivity"
+            android:parentActivityName=".ShowcaseActivity"
+            android:label="Animated Vector Drawable"/>
+        <activity
             android:name=".AnimatingDrawablesActivity"
             android:label="Animating Drawables"
             android:parentActivityName=".ShowcaseActivity" />
