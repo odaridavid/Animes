@@ -5,4 +5,10 @@
         android:id="@+id/action_animating_drawables"
         android:title="@string/title_animating_drawables"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_animated_vector_drawables"
+        android:title="@string/title_animated_vector_drawable"
+        app:showAsAction="never" />
+
 </menu>

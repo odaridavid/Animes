@@ -12,4 +12,5 @@
     <string name="title_animating_drawables">Animating Drawables</string>
     <string name="title_animate">Animate</string>
     <string name="title_start_stop">Start/Stop</string>
+    <string name="title_animated_vector_drawable">Animated Vector Drawable</string>
 </resources>
